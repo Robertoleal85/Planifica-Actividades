@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi perfil | Mi espacio escolar</title>
+
+    <!-- Estilos generales del proyecto -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Estilos exclusivos del perfil -->
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="menu-container" aria-label="Navegación principal">
+            <a class="logo-container" href="index.html">
+                <img src="imgs/Libro.png" alt="Logo del sitio">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="tareas.html">Tareas</a></li>
+                <li><a href="objetivos.html">Objetivos</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a class="active" href="perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="perfil-container">
+        <p class="mensaje perfil-aviso">La foto y el banner se guardan en este navegador y dispositivo. No se suben a internet.</p>
+
+        <section class="perfil-card">
+
+            <!-- Banner del perfil -->
+            <div class="perfil-banner" id="banner">
+                <label for="input-banner" class="editar-banner">
+                    Cambiar banner
+                </label>
+
+                <input
+                    type="file"
+                    id="input-banner"
+                    accept="image/*"
+                    hidden
+                >
+            </div>
+
+            <!-- Foto de perfil -->
+            <div class="perfil-foto-container">
+                <img
+                    src="imgs/Icon.png"
+                    alt="Foto de perfil"
+                    id="foto-perfil"
+                    class="perfil-foto"
+                >
+
+                <label for="input-foto" class="editar-foto"
+                       title="Cambiar foto de perfil">
+                    +
+                </label>
+
+                <input
+                    type="file"
+                    id="input-foto"
+                    accept="image/*"
+                    hidden
+                >
+            </div>
+
+            <!-- Información del estudiante -->
+            <div class="perfil-info">
+
+                <label for="nombre" class="campo-label">
+                    Nombre del estudiante
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    class="campo-perfil nombre"
+                    placeholder="Escribe tu nombre"
+                    value="Nombre del estudiante"
+                    maxlength="80"
+                >
+
+                <p class="perfil-frase">
+                    Mi espacio de aprendizaje
+                </p>
+
+                <div class="separador"></div>
+
+                <label for="correo" class="campo-label">
+                    Correo institucional
+                </label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    class="campo-perfil"
+                    placeholder="alumno@escuela.edu.mx"
+                    maxlength="120"
+                >
+
+                <button type="button" id="guardar" class="btn-guardar">
+                    Guardar perfil
+                </button>
+
+                <p id="mensaje" class="mensaje" aria-live="polite"></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>© 2026 · Diseñamos una web para mejorar nuestra escuela</p>
+            <p>Diseñado y desarrollado por <strong>Equipo PlanEA</strong></p>
+            <ul class="footer-links">
+                <li><a href="index.html">Ir a inicio</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/perfil.js" defer></script>
+
+</body>
+</html>

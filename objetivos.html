@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Define tus metas escolares, haz seguimiento a tus objetivos diarios y mejora tu rendimiento académico.">
+    <title>Objetivos | Diseñamos una web para mejorar nuestra escuela</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/objetivos.css">
+</head>
+<body id="inicio">
+    <header class="site-header">
+        <nav class="menu-container" aria-label="Navegación principal">
+            <a class="logo-container" href="index.html" aria-label="Ir al inicio">
+                <img src="imgs/Libro.png" alt="Libro abierto, logo del sitio">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="tareas.html">Tareas</a></li>
+                <li><a class="active" aria-current="page" href="objetivos.html">Objetivos</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <p class="eyebrow">DEFINE · PLANIFICA · ALCANZA</p>
+                <h2 id="hero-title">Tus metas, a tu ritmo</h2>
+                <p>Establecer objetivos claros te ayuda a transformar grandes tareas académicas en pasos sencillos y alcanzables cada día.</p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section" aria-labelledby="intro-title">
+            <p class="eyebrow">MÉTODO DE ÉXITO</p>
+            <h2 id="intro-title">¿Cómo crear objetivos efectivos?</h2>
+            <p class="section-lead"><center>Aplica la metodología <strong>SMART</strong> para asegurarte de que tus metas escolares sean alcanzables y motivadoras.</center></p>
+        </section>
+
+        <!-- SMART Grid -->
+        <section class="smart-grid" aria-label="Metodología SMART">
+            <article class="smart-card">
+                <div class="smart-letter">S</div>
+                <h3>Específico</h3>
+                <p>Define claramente qué quieres lograr sin ambigüedades.</p>
+                <span class="smart-example">Ej: "Repasar 3 capítulos de Historia"</span>
+            </article>
+
+            <article class="smart-card">
+                <div class="smart-letter">M</div>
+                <h3>Medible</h3>
+                <p>Asegúrate de poder cuantificar tu progreso diario.</p>
+                <span class="smart-example">Ej: "Resolver 10 ejercicios de Geometría"</span>
+            </article>
+
+            <article class="smart-card">
+                <div class="smart-letter">A</div>
+                <h3>Alcanzable</h3>
+                <p>Plantéate metas realistas según tu tiempo y capacidad.</p>
+                <span class="smart-example">Ej: "Estudiar 30 minutos sin distracciones"</span>
+            </article>
+
+            <article class="smart-card">
+                <div class="smart-letter">R</div>
+                <h3>Relevante</h3>
+                <p>Asegúrate de que la meta aporte a tu aprendizaje.</p>
+                <span class="smart-example">Ej: "Aprender el vocabulario de Inglés"</span>
+            </article>
+
+            <article class="smart-card">
+                <div class="smart-letter">T</div>
+                <h3>A tiempo</h3>
+                <p>Establece una fecha u hora límite concreta.</p>
+                <span class="smart-example">Ej: "Terminar antes de las 7 PM"</span>
+            </article>
+        </section>
+
+        <!-- Gestor interactivo de Objetivos -->
+        <section id="gestor-objetivos" class="interactive-section">
+            <h2>Mis Objetivos Diarios</h2>
+            
+            <div class="progress-box">
+                <div class="progress-info">
+                    <span>Progreso del día</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <form id="goal-form" class="goal-form">
+                <input type="text" id="goal-text" placeholder="Ej: Resolver la guía de Matemáticas..." required>
+                <select id="goal-category">
+                    <option value="academico">Académico</option>
+                    <option value="habito">Hábito de Estudio</option>
+                    <option value="bienestar">Bienestar</option>
+                </select>
+                <button type="submit">Agregar Objetivo</button>
+            </form>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="academico">Académicos</button>
+                <button class="filter-btn" data-filter="habito">Hábitos</button>
+                <button class="filter-btn" data-filter="bienestar">Bienestar</button>
+            </div>
+
+            <ul id="goals-list" class="goals-list"></ul>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <h2>Un consejo para tus metas</h2>
+            <p>No te preocupes por hacer todo al mismo tiempo. Cumplir un pequeño objetivo cada día es suficiente para lograr un gran cambio.</p>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>© 2026 · Diseñamos una web para mejorar nuestra escuela</p>
+            <p>Diseñado y desarrollado por <strong>Equipo PlanEA</strong></p>
+            <ul class="footer-links">
+                <li><a href="index.html">Ir a inicio</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let goals = JSON.parse(localStorage.getItem('mis_objetivos_escuela')) || [
+                { id: 1, text: 'Revisar la guía de estudio para el examen', category: 'academico', completed: false },
+                { id: 2, text: 'Organizar la libreta de apuntes', category: 'habito', completed: true },
+                { id: 3, text: 'Hacer una pausa activa de 10 minutos', category: 'bienestar', completed: false }
+            ];
+
+            let currentFilter = 'all';
+
+            const goalForm = document.getElementById('goal-form');
+            const goalInput = document.getElementById('goal-text');
+            const categorySelect = document.getElementById('goal-category');
+            const goalsList = document.getElementById('goals-list');
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            function saveAndRender() {
+                localStorage.setItem('mis_objetivos_escuela', JSON.stringify(goals));
+                renderGoals();
+                updateProgress();
+            }
+
+            function updateProgress() {
+                if (goals.length === 0) {
+                    progressBar.style.width = '0%';
+                    progressPercent.textContent = '0%';
+                    return;
+                }
+                const completedCount = goals.filter(g => g.completed).length;
+                const percentage = Math.round((completedCount / goals.length) * 100);
+                progressBar.style.width = percentage + '%';
+                progressPercent.textContent = percentage + '%';
+            }
+
+            function renderGoals() {
+                goalsList.innerHTML = '';
+                const filtered = goals.filter(g => currentFilter === 'all' || g.category === currentFilter);
+
+                if (filtered.length === 0) {
+                    goalsList.innerHTML = '<li style="text-align:center; color:#666; padding:1.5rem 0;">No hay objetivos en esta categoría.</li>';
+                    return;
+                }
+
+                filtered.forEach(goal => {
+                    const li = document.createElement('li');
+                    li.className = `goal-item ${goal.completed ? 'completed' : ''}`;
+                    
+                    const catLabels = {
+                        academico: 'Académico',
+                        habito: 'Hábito',
+                        bienestar: 'Bienestar'
+                    };
+
+                    li.innerHTML = `
+                        <input type="checkbox" ${goal.completed ? 'checked' : ''} aria-label="Marcar como completado">
+                        <div class="goal-text-container">
+                            <span>${goal.text}</span>
+                            <span class="badge badge-${goal.category}">${catLabels[goal.category]}</span>
+                        </div>
+                        <button class="delete-btn" aria-label="Eliminar objetivo">✕</button>
+                    `;
+
+                    li.querySelector('input[type="checkbox"]').addEventListener('change', () => {
+                        goal.completed = !goal.completed;
+                        saveAndRender();
+                    });
+
+                    li.querySelector('.delete-btn').addEventListener('click', () => {
+                        goals = goals.filter(g => g.id !== goal.id);
+                        saveAndRender();
+                    });
+
+                    goalsList.appendChild(li);
+                });
+            }
+
+            goalForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const text = goalInput.value.trim();
+                if (text) {
+                    goals.push({
+                        id: Date.now(),
+                        text: text,
+                        category: categorySelect.value,
+                        completed: false
+                    });
+                    goalInput.value = '';
+                    saveAndRender();
+                }
+            });
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    renderGoals();
+                });
+            });
+
+            renderGoals();
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

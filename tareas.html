@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Organiza tus tareas escolares y desarrolla buenos hábitos de aprendizaje.">
+
+    <title>Tareas | Diseñamos una web para mejorar nuestra escuela</title>
+
+    <!-- Estilos generales y estilos propios de Tareas -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tareas.css">
+</head>
+
+<body id="inicio">
+
+    <!-- ENCABEZADO ORIGINAL -->
+    <header class="site-header">
+
+        <nav class="menu-container" aria-label="Navegación principal">
+            <a class="logo-container" href="index.html" aria-label="Ir al inicio">
+                <img src="imgs/Libro.png" alt="Logo del sitio">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a class="active" aria-current="page" href="tareas.html">Tareas</a></li>
+                <li><a href="objetivos.html">Objetivos</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO DE TAREAS -->
+    <main class="tareas-page">
+
+        <section class="tareas-hero">
+            <p class="eyebrow">APRENDE · ORGANÍZATE · AVANZA</p>
+            <h2>Tu reto de hoy</h2>
+            <p>
+                Completa tus tareas paso a paso y desarrolla
+                hábitos que te ayuden a mejorar tu experiencia escolar.
+            </p>
+        </section>
+
+        <section class="tareas-section">
+            <div class="tareas-heading">
+                <p class="eyebrow">TUS ACTIVIDADES</p>
+                <h2>Mis tres tareas</h2>
+                <p>
+                    Completa las tres actividades seleccionadas.
+                    Al marcar una tarea como realizada, comenzará una cuenta regresiva de 30 minutos. Después aparecerá una nueva actividad elegida al azar entre las nueve disponibles.
+                </p>
+            </div>
+
+            <div class="tareas-grid">
+
+                <!-- TAREA 1 -->
+                <article class="tarea-card" data-slot="0">
+                    <div class="tarea-icon" aria-hidden="true">📚</div>
+                    <span class="tarea-categoria">APRENDIZAJE</span>
+                    <h3>Repasa un tema</h3>
+                    <p>
+                        Repasa tus apuntes y escribe tres ideas
+                        importantes de lo aprendido en clase.
+                    </p>
+                    <button class="tarea-button" type="button">
+                        Marcar como realizada
+                    </button>
+                    <p class="tarea-status">Pendiente de completar</p>
+                </article>
+
+                <!-- TAREA 2 -->
+                <article class="tarea-card" data-slot="1">
+                    <div class="tarea-icon" aria-hidden="true">📝</div>
+                    <span class="tarea-categoria">ORGANIZACIÓN</span>
+                    <h3>Organiza tus pendientes</h3>
+                    <p>
+                        Anota tus actividades y elige cuál
+                        necesitas terminar primero.
+                    </p>
+                    <button class="tarea-button" type="button">
+                        Marcar como realizada
+                    </button>
+                    <p class="tarea-status">Pendiente de completar</p>
+                </article>
+
+                <!-- TAREA 3 -->
+                <article class="tarea-card" data-slot="2">
+                    <div class="tarea-icon" aria-hidden="true">🌱</div>
+                    <span class="tarea-categoria">BIENESTAR</span>
+                    <h3>Tómate un descanso</h3>
+                    <p>
+                        Haz una pausa, estira el cuerpo y despeja
+                        tu mente antes de continuar estudiando.
+                    </p>
+                    <button class="tarea-button" type="button">
+                        Marcar como realizada
+                    </button>
+                    <p class="tarea-status">Pendiente de completar</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CATÁLOGO DE LAS NUEVE TAREAS -->
+        <template id="catalogo-tareas">
+
+            <article data-tarea="1">
+                <span>📚</span>
+                <h3>Repasa un tema</h3>
+                <p>Repasa tus apuntes de clase.</p>
+            </article>
+
+            <article data-tarea="2">
+                <span>📝</span>
+                <h3>Organiza tus pendientes</h3>
+                <p>Ordena tus actividades por prioridad.</p>
+            </article>
+
+            <article data-tarea="3">
+                <span>🌱</span>
+                <h3>Tómate un descanso</h3>
+                <p>Haz una pausa y descansa de las pantallas.</p>
+            </article>
+
+            <article data-tarea="4">
+                <span>🎯</span>
+                <h3>Define una meta</h3>
+                <p>Elige un objetivo concreto para hoy.</p>
+            </article>
+
+            <article data-tarea="5">
+                <span>💧</span>
+                <h3>Cuida tu hidratación</h3>
+                <p>Tómate un momento para beber agua.</p>
+            </article>
+
+            <article data-tarea="6">
+                <span>📖</span>
+                <h3>Lee algo nuevo</h3>
+                <p>Lee unas páginas de un libro.</p>
+            </article>
+
+            <article data-tarea="7">
+                <span>🧹</span>
+                <h3>Ordena tu espacio</h3>
+                <p>Prepara tu escritorio y tus materiales.</p>
+            </article>
+
+            <article data-tarea="8">
+                <span>🧠</span>
+                <h3>Practica lo aprendido</h3>
+                <p>Resuelve ejercicios de una materia.</p>
+            </article>
+
+            <article data-tarea="9">
+                <span>🌙</span>
+                <h3>Prepara el día siguiente</h3>
+                <p>Revisa tu horario y prepara tus materiales.</p>
+            </article>
+
+        </template>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>© 2026 · Diseñamos una web para mejorar nuestra escuela</p>
+            <p>Diseñado y desarrollado por <strong>Equipo PlanEA</strong></p>
+            <ul class="footer-links">
+                <li><a href="index.html">Ir a inicio</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/tareas.js" defer></script>
+</body>
+</html>
